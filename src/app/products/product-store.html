@@ -1,0 +1,35 @@
+<div style="margin-bottom:30px; padding-bottom:30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="bs-callout bs-callout-warning">
+                    <h4>Products List from MyeCommApp</h4>
+
+                    <p> The below is a list of All-Products using HttpClient Module from json Data. Please <a routerLink="/products"
+                            class="nav-link " routerLinkActive="active">Click Here</a> to see products by categories. <br/> Products-Data
+                        by categories are not from Server.
+                    </p>
+                </div>
+                <ng-container *ngIf="products$|async;let productItems">
+
+                    <ul class="list-group" *ngIf="productItems.length > 0">
+
+                        <li class="list-group-item" *ngFor="let prod of productItems">
+
+                            <div class="media">
+                                <div class="media-left">
+                                    <img [src]="prod.imagePath" alt="..." class="media-object" style="width:60px">
+
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading"> {{prod.productName}}</h4>
+                                    <p> {{prod.extract}}</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div style="margin-bottom:30px; padding-bottom:30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">Select Category</li>
+                    <li class="list-group-item" *ngFor="let pc of productCategoryList">
+                        <span (click)=onSelect_getCat(pc)>   {{pc.productCategoryName}}</span>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-xs-12 col-sm-10">
+
+                <div class="panel panel-warning">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{selectedProductTitle}}</h3>
+                    </div>
+
+
+                    <div class="panel-body"> 
+                        <div class="row">
+                            <div class="col-sm-4 productContainer" *ngFor="let p of productList | appSearchFilter: 'productCategoryId':selectedProductCategoryId">
+                                <div class="imgContainer">
+                                    <img [src]="p.imagePath" alt="..." class="img-thumbnail" (click)="onSelect(p)">
+                                </div>
+                                <div><strong> {{p.productName}} </strong></div>
+                                <div> {{p.price | currency:USD:true}} </div>
+                                <button class="btn btn-success btn-sm" (click)="onAddtoCart(p)">Add To Cart</button>
+                            </div>
+                        </div>
+
+                        <div *ngIf="selectedProduct">
+                            <hr> Product Details:
+                            <h4> {{selectedProduct.productName}}</h4>
+                            Price: <strong>{{selectedProduct.price | currency:'USD':true}}</strong> <br/> {{selectedProduct.description}}
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="panel-footer"><a routerLink="/products" class="nav-link " routerLinkActive="active">View All Products</a></div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>

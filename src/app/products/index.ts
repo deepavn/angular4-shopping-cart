@@ -1,0 +1,5 @@
+export * from './product.module'
+export * from './product-home.component'
+export *  from './product-details.component'
+export *  from './product-list.component'
+export *  from './product-store.component'

@@ -1,0 +1,16 @@
+    
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a routerLink="/products" class="nav-link " routerLinkActive="active">Products</a></li>
+    <li><a routerLink="/products/category/{{myProductCategory.productCategoryId}}" class="nav-link " routerLinkActive="active">Category</a></li>
+    <li  class="active"> {{myProduct.productName}} </li>       
+  </ol>
+ 
+<div>
+   
+    <h4> {{myProduct.productName}}</h4>
+    Price: <strong>{{myProduct.price | currency:'USD':true}}</strong> <br/> {{myProduct.description}}
+    <p></p>
+</div>
+
+ 
