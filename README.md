@@ -1,4 +1,4 @@
-# MyEcommApp
+# Shopping Cart Project in Angular 4
 
 This project was done in:
 ___________________________________________________________
