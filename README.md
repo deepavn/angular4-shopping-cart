@@ -21,28 +21,53 @@ Reactive Programming (Observables, Reducers, Subscribers, HttpClient):
 State Management Using Redux - ngrx 4
 Using a Server to fetch json data for the Products. 
 
-## Development server
+## Sample Code in Cart-Service:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+import { Injectable, Inject } from '@angular/core'
+import { Observable } from 'rxjs/Observable';
+import { Store, StoreModule } from '@ngrx/store';
 
-## Code scaffolding
+import { LoadState, SaveState } from '../shared/local-storage'
+import { AppState } from '../core/app-state'
+import { Cart } from './cart.model'
+import { CartItem } from './cart-item.model'
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+import { ADDCARTITEM, REMOVECARTITEM, RESET, DELETECARTITEM } from './cart.reducer';
+import { CartAction } from './cart.action'
 
-## Build
+@Injectable()
+export class CartService {
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+    constructor(private store: Store<AppState>) {
+    }
 
-## Running unit tests
+    getCart(): Cart {
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+        let myData: Cart;
+        let myData$: Observable<Cart>;
 
-## Running end-to-end tests
+        this.store.select<Cart>(x => x.TheCart).subscribe(data => myData = data)
+        console.log(myData)
+        return myData
+    }
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+    
 
-## Further help
+    reset() {
+        this.store.dispatch({ type: RESET });
+    }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-#
+    addToCart(myCartItem: CartItem): void {
+
+        this.store.dispatch<CartAction>({ type: ADDCARTITEM, cartItem: myCartItem });
+    }
+
+    removeFromCart(myCartItem: CartItem): void {
+
+        this.store.dispatch<CartAction>({ type: REMOVECARTITEM, cartItem: myCartItem });
+    }
+
+    deleteItem(myCartItem: CartItem) {
+          this.store.dispatch<CartAction>({ type: DELETECARTITEM, cartItem: myCartItem });
+    }
+}
