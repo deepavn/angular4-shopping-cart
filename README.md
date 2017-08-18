@@ -21,5 +21,5 @@ Reactive Programming (Observables, Reducers, Subscribers, HttpClient):
 State Management Using Redux - ngrx 4
 Using a Server to fetch json data for the Products. 
 
-##DEMO
+#DEMO
 http://teknolearn.com/projects/angular4-shopping-cart/
