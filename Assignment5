@@ -8,6 +8,9 @@ and replace it with the app folder from here:
 https://github.com/deepavn/angular4-shopping-cart-noredux
 
 --------------
+Please also copy assets folder - as-it-is from the above link 
+And copy / replace app.module from what I have in above link
+
 
 You should noth ave any errors. 
 
@@ -17,3 +20,4 @@ If you still have, we can see tomorrow in class.
 
 Part 2 of Assignment:
 
+Please 
