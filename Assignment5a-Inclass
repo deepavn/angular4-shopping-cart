@@ -1,0 +1,65 @@
+Get into 4 Groups...
+
+MyFoodBag is good. But can we do a broader cart ? A biiger cart like amazon.
+Can you get a more generic name ?
+Food can be one of the categories. 
+
+Pink Nav Bar, And Beige Body Color is perfect.
+
+TASK 1:
+Install bootstrap and angular-bootstrap
+
+> npm install bootstrap ngx-bootstrap --save
+
+TASK 1a:
+
+Update ypur app.module by including the following new bootstrap modules at the appropriate place.
+
+...
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+...
+...
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
+  ],
+  // ...
+})
+export class AppModule {}
+
+...
+
+Task 2:
+
+We need to create 18-24 Product Items.
+Divide yourselves into 4 groups. 
+
+Each group should do 6 products. One from each of the below. 
+Gather the images too for the same. 
+Save your images in your assets folder. 
+
+The categories are fixed.
+
+Clothing - 1
+Books - 2
+Jewelry - 3
+Stationary - 4
+Furniture - 5
+Food & Grocery - 6
+
+The food and grocery does not exist. Create it. 
+
+TASK 3: 
+
+Did you undertand the concept of modules, and components ?
+
+TASK 4:
+
+Lets complete the cart-service:
+
