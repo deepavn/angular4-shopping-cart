@@ -1,0 +1,58 @@
+Go to cart folder
+See the cart-item.model file
+
+A model file usually, is created to display the fields needed for a html page. They are similar to columns in a table in SQL database.
+
+The fields in cart-item are the ones we need to show in the cart page. 
+
+-----------
+
+Now go to products folder
+
+go to product-list.component.ts file 
+
+Can you see a method called "onAddtoCart" 
+It accepts an argument myProduct of type Product
+"myProduct: Product" 
+
+Can yo u see ?
+
+In the website, when custoemr goes to cart, they need to see the products selected on the products-list page.
+But again, we do not need all product fields to show in cart.
+For example: We do not need to see description or a categoryid! in cart.
+
+And hence we created another similar class called "cart-items" with required fields
+
+Now, in onAddtoCart method, we are updating the "cart-item" with the selected product data. 
+
+
+myCartItem.id = myProduct.productId
+myCartItem.name = myProduct.productName
+
+The task is....
+
+I am interested in seeing the image of the product too. A Small thumb-size image only. 
+
+And for that, you must create a new field in cart-model.ts file.
+call the field "imgpath" 
+It is a string.
+
+Go back to OnAddToCart method and create another line for this image path,  
+myCartItem.imgpath = .... (add correct code)
+
+Next go to cart-items.html page
+
+Find the section where you have a loop.
+Loop is given using *ngFor
+
+It is a loop of all selected cart items
+instead of {{prod.id}} , remove it and add the image code.
+<img src= XXX  width="75px" height="75px" />
+
+Enter the correct info for XXXX
+
+----------------
+
+
+
+
